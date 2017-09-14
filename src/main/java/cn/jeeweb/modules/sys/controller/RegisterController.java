@@ -23,6 +23,7 @@ public class RegisterController extends BaseController{
 	@RequestMapping("/toRegister")
 	public ModelAndView toRegisterUI(){
 		System.out.println("进入register 页面");
+		
 		return new ModelAndView("modules/sys/register/register");
 	}
 
