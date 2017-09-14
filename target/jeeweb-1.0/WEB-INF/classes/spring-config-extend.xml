@@ -8,7 +8,7 @@
           
 	<!-- 短信发送 -->
 	<bean id="smsDao" class="cn.jeeweb.modules.sms.dao.SmsDaoIml" />
-	<bean id="smsSender" class="cn.jeeweb.core.utils.sms.sender.HuyiSmsSender" />
+	<bean id="smsSender" class="cn.jeeweb.core.utils.sms.sender.TelnetSender" />
 	<bean id="smsHelper" class="cn.jeeweb.core.disruptor.sms.SmsHelper">
 	    <!-- 发送短信处理进程数 -->
 		<property name="handlerCount" value="2" />

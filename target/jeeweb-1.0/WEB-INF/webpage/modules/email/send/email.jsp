@@ -27,7 +27,7 @@
 								action="${adminPath}/email/send/sendEmailByContent" method="post"
 								class="form-horizontal">
 								<div class="form-group col-sm-12">
-									<label class="col-sm-2 control-label"><font color="red">*</font>邮件：</label>
+									<label class="col-sm-2 control-label"><font color="red">*</font>收件人邮箱：</label>
 									<div class="col-sm-10">
 										<form:input path="email" class="form-control" nested="false"
 											datatype="*" placeholder="邮件，多个以英文逗号“,”隔开"

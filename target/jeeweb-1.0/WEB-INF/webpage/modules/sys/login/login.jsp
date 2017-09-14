@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="input-icon right"><i class="fa fa-key"></i>
-                        <input name="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
+                        <input name="password"  type="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
                     </div>
                 </div>
                 <c:if test="${showCaptcha eq 1}">
@@ -68,10 +68,10 @@
 	            </div>
                 <div class="clearfix"></div>
                 <div class="forget-password">
-                    <span>默认账号密码:<b>admin/123456</span>
+<!--                     <span>默认账号密码:<b>admin/123456</span> -->
                 </div>
                 <hr>
-                <p>如果您没有帐号? <a id="btn-register" href="#">请注册</a>
+                <p>如果您没有帐号? <a id="btn-register" href="${adminPath}/register/toRegister">请注册</a>
                 </p>
             </div>
         </form>

@@ -14,13 +14,13 @@
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
 			<div class="col-sm-12">
-                <div class="col-sm-12">
-                    <div class="alert alert-success">
-                       <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                       	内容方式，内容为:您的验证码是：{1}。请不要把验证码泄露给其他人。<br /> 
-                    	模板方式，模版编码为:vercode,参数为:12345
-                    </div>
-                </div>
+<!--                 <div class="col-sm-12"> -->
+<!--                     <div class="alert alert-success"> -->
+<!--                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> -->
+<!--                        	内容方式，内容为:您的验证码是：{1}。请不要把验证码泄露给其他人。<br />  -->
+<!--                     	模板方式，模版编码为:vercode,参数为:12345 -->
+<!--                     </div> -->
+<!--                 </div> -->
                 <div class="col-sm-6">
 					<div class="portlet box  portlet-grey">
 						 <div class="portlet-header">
@@ -70,43 +70,43 @@
 		                        <i class="fa fa-refresh"></i><i class="fa fa-times"></i>
 		                     </div>
 						</div>
-						<div class="portlet-body">
-							<form:form id="smsTemplateSmsForm"
-								action="${adminPath}/sms/send/sendSmsByCode" method="post"
-								class="form-horizontal">
-								<div class="form-group col-sm-12">
-									<label class="col-sm-4 control-label"><font color="red">*</font>电话号码：</label>
-									<div class="col-sm-8">
-										<form:input path="phone" class="form-control" nested="false"
-											datatype="*" placeholder="电话号码，多个以英文逗号“,”隔开"
-											htmlEscape="false" />
-									</div>
-								</div>
+<!-- 						<div class="portlet-body"> -->
+<%-- 							<form:form id="smsTemplateSmsForm" --%>
+<%-- 								action="${adminPath}/sms/send/sendSmsByCode" method="post" --%>
+<%-- 								class="form-horizontal"> --%>
+<!-- 								<div class="form-group col-sm-12"> -->
+<!-- 									<label class="col-sm-4 control-label"><font color="red">*</font>电话号码：</label> -->
+<!-- 									<div class="col-sm-8"> -->
+<%-- 										<form:input path="phone" class="form-control" nested="false" --%>
+<%-- 											datatype="*" placeholder="电话号码，多个以英文逗号“,”隔开" --%>
+<%-- 											htmlEscape="false" /> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
 	
-								<div class="form-group col-sm-12">
-									<label class="col-sm-4 control-label"><font color="red">*</font>发送模版编码：</label>
-									<div class="col-sm-8">
-										<form:input path="code" class="form-control" nested="false"
-											datatype="*" placeholder="这里的编码需要在模版配置中能找到" htmlEscape="false" />
-									</div>
-								</div>
-								<div class="form-group col-sm-12">
-									<label class="col-sm-4 control-label"><font color="red">*</font>发送内容：</label>
-									<div class="col-sm-8">
-										<form:input path="data" class="form-control" nested="false"
-											datatype="*" placeholder="多内容用英文逗号分割“,”" htmlEscape="false" />
-									</div>
-								</div>
+<!-- 								<div class="form-group col-sm-12"> -->
+<!-- 									<label class="col-sm-4 control-label"><font color="red">*</font>发送模版编码：</label> -->
+<!-- 									<div class="col-sm-8"> -->
+<%-- 										<form:input path="code" class="form-control" nested="false" --%>
+<%-- 											datatype="*" placeholder="这里的编码需要在模版配置中能找到" htmlEscape="false" /> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="form-group col-sm-12"> -->
+<!-- 									<label class="col-sm-4 control-label"><font color="red">*</font>发送内容：</label> -->
+<!-- 									<div class="col-sm-8"> -->
+<%-- 										<form:input path="data" class="form-control" nested="false" --%>
+<%-- 											datatype="*" placeholder="多内容用英文逗号分割“,”" htmlEscape="false" /> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
 	
-								<div class="form-group">
-									<div class="col-sm-8 col-sm-offset-3 text-right">
-										<button class="btn btn-primary" type="submit">发送</button>
-									</div>
-								</div>
-							</form:form>
-						</div>
-					</div>
-				</div>
+<!-- 								<div class="form-group"> -->
+<!-- 									<div class="col-sm-8 col-sm-offset-3 text-right"> -->
+<!-- 										<button class="btn btn-primary" type="submit">发送</button> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<%-- 							</form:form> --%>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</div>
 		</div>
 		 

@@ -152,6 +152,7 @@
             <value>
                 /static/** = anon
                 /jcaptcha* = anon
+                ${admin.url.prefix}/register/** = anon
                 ${admin.url.prefix}/logout = logout
                 ${admin.url.prefix}/login  = jCaptchaValidate,authc
                 /** = sysUser,onlineSession,user,syncOnlineSession,perms,roles

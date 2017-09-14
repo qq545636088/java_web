@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
             	    <div class="col-lg-12">
-                    	<input name="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
+                    	<input name="password" type="password" class="form-control" placeholder="<spring:message code="sys.login.password.placeholder"/>" required="">
                     </div>
                 </div>
                 <c:if test="${showCaptcha eq 1}">
