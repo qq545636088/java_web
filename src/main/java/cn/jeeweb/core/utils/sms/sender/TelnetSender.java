@@ -117,14 +117,14 @@ public class TelnetSender extends SmsSender {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		String[] phones = phone.split(",");
 		for (String singlePhone : phones) {
-			String data = null;
-			if (datas.length > 0) {
-				for (int i = 0; i < datas.length; i++) {
-					data = datas[0];
-				}
-			}
+//			String data = null;
+//			if (datas.length > 0) {
+//				for (int i = 0; i < datas.length; i++) {
+//					data = datas[0];
+//				}
+//			}
 			try {
-				SendSmsResponse sendSms = sendSms(phone, smsTemplate.getTemplateContent());
+				SendSmsResponse sendSms = sendSms(singlePhone, smsTemplate.getTemplateContent());
 				logger.info("telnetSms result=" + sendSms);
 				if ("OK".equals(sendSms.getCode())) {
 					resultMap.put("code", "2");

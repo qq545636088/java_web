@@ -63,13 +63,13 @@
 				</div>
 				<div class="col-sm-6">
 				    <div class="portlet box  portlet-grey">
-						 <div class="portlet-header">
-							<div class="caption">短信发送(模版方式发送)</div>
-							<div class="tools">
-		                        <i class="fa fa-chevron-up"></i>
-		                        <i class="fa fa-refresh"></i><i class="fa fa-times"></i>
-		                     </div>
-						</div>
+<!-- 						 <div class="portlet-header"> -->
+<!-- 							<div class="caption">短信发送(模版方式发送)</div> -->
+<!-- 							<div class="tools"> -->
+<!-- 		                        <i class="fa fa-chevron-up"></i> -->
+<!-- 		                        <i class="fa fa-refresh"></i><i class="fa fa-times"></i> -->
+<!-- 		                     </div> -->
+<!-- 						</div> -->
 <!-- 						<div class="portlet-body"> -->
 <%-- 							<form:form id="smsTemplateSmsForm" --%>
 <%-- 								action="${adminPath}/sms/send/sendSmsByCode" method="post" --%>

@@ -1,23 +1,26 @@
 package cn.jeeweb.modules.sys.controller;
 
 import java.util.Random;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
 
 import cn.jeeweb.core.common.controller.BaseController;
 import cn.jeeweb.core.model.AjaxJson;
+import cn.jeeweb.core.utils.StringUtils;
 import cn.jeeweb.core.utils.sms.data.SmsResult;
-import cn.jeeweb.core.utils.sms.sender.SmsSender;
 import cn.jeeweb.core.utils.sms.sender.TelnetSender;
+import cn.jeeweb.modules.sys.entity.User;
+import cn.jeeweb.modules.sys.service.IUserService;
+import cn.jeeweb.modules.sys.service.impl.PasswordService;
 import cn.jeeweb.modules.sys.utils.UserUtils;
 
 /**
@@ -31,10 +34,14 @@ import cn.jeeweb.modules.sys.utils.UserUtils;
 @RequestMapping("${admin.url.prefix}/register")
 public class RegisterController extends BaseController {
 
+	@Autowired
+	private IUserService iuserService;
+	@Autowired
+	private PasswordService passwordService;
+	
 	@RequestMapping("/toRegister")
 	public ModelAndView toRegisterUI() {
 		System.out.println("进入register 页面");
-
 		return new ModelAndView("modules/sys/register/register");
 	}
 
@@ -45,26 +52,41 @@ public class RegisterController extends BaseController {
 	 * @param response
 	 */
 	@RequestMapping("/saveRegister")
-	public void saveRegister(HttpServletRequest request, HttpServletResponse response) {
+	@ResponseBody
+	public AjaxJson saveRegister(HttpServletRequest request, HttpServletResponse response) {
 		AjaxJson ajaxJson = new AjaxJson();
-		String username = request.getParameter("userName");
-		String password = request.getParameter("passWord");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		String authCode = request.getParameter("authCode");
 		String userKey = request.getParameter("userKey");
 		if (!StringUtils.isEmpty(username) && !StringUtils.isEmpty(password) && !StringUtils.isEmpty(authCode)) {
-			String obj = (String) UserUtils.getCache(userKey);
-			if (!StringUtils.isEmpty(obj)) {
-				if (authCode.equals(obj)) {
-					
+//			String obj = (String) UserUtils.getCache(userKey);
+//			if (!StringUtils.isEmpty(obj)) {
+//				if (authCode.equals(obj)) {
+					User user = new User();
+					user.setId(StringUtils.randomUUID());
+					user.setUsername(username);
+					user.setPassword(password);
+					user.setPhone(username);
+					user.setStatus(User.STATUS_NORMAL);
+					try {
+						iuserService.save(user);
+						ajaxJson.setData(user);
+						ajaxJson.setMsg("注册成功!");
+					} catch (Exception e) {
+						ajaxJson.fail("注册失败！");
+						e.printStackTrace();
+					}
 				} else {
 					ajaxJson.fail("验证码不正确！");
 				}
-			} else {
-				ajaxJson.fail("未获取到验证码！");
-			}
-		} else {
-			ajaxJson.fail("用户名或密码不能为空！");
-		}
+//			} else {
+//				ajaxJson.fail("未获取到验证码！");
+//			}
+//		} else {
+//			ajaxJson.fail("用户名或密码不能为空！");
+//		}
+		return ajaxJson;
 	}
 
 	/**
@@ -73,6 +95,7 @@ public class RegisterController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("/getSms")
+	@ResponseBody
 	public AjaxJson getSms(HttpServletRequest request, HttpServletResponse response) {
 		AjaxJson ajaxJson = new AjaxJson();
 		String phone = request.getParameter("phone");
@@ -83,8 +106,8 @@ public class RegisterController extends BaseController {
 		String randomNum= randomNumber(6);
 		cn.jeeweb.core.utils.sms.data.SmsTemplate template = cn.jeeweb.core.utils.sms.data.SmsTemplate.newTemplateByContent(randomNum);
 		try {
-			SmsResult sms = t.send(phone, template, null);
-			String phoneKey ="user"+UUID.randomUUID();
+			t.send(phone, template, null);
+			String phoneKey ="user"+StringUtils.randomUUID();
 			UserUtils.putCache(phoneKey,randomNum );
 			JSONObject json = new JSONObject();
 			json.put("authCode", randomNum);
@@ -104,7 +127,6 @@ public class RegisterController extends BaseController {
 		for (int i = 0; i < num; i++) {
 			sb.append(number[random.nextInt(10)]);
 		}
-		System.out.println(sb.toString());
 		return sb.toString();
 	}
 }
