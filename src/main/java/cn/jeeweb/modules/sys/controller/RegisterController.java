@@ -1,5 +1,6 @@
 package cn.jeeweb.modules.sys.controller;
 
+import java.util.Date;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,19 +61,24 @@ public class RegisterController extends BaseController {
 		String authCode = request.getParameter("authCode");
 		String userKey = request.getParameter("userKey");
 		if (!StringUtils.isEmpty(username) && !StringUtils.isEmpty(password) && !StringUtils.isEmpty(authCode)) {
-//			String obj = (String) UserUtils.getCache(userKey);
-//			if (!StringUtils.isEmpty(obj)) {
-//				if (authCode.equals(obj)) {
+			String obj = (String) UserUtils.getCache(userKey);
+			if (!StringUtils.isEmpty(obj)) {
+				if (authCode.equals(obj)) {
 					User user = new User();
 					user.setId(StringUtils.randomUUID());
 					user.setUsername(username);
 					user.setPassword(password);
 					user.setPhone(username);
 					user.setStatus(User.STATUS_NORMAL);
+					user.setCreateBy(UserUtils.getByUserName("admin"));
+					user.setUpdateBy(UserUtils.getByUserName("admin"));
+					user.setCreateDate(new Date());
+					user.setUpdateDate(new Date());
 					try {
 						iuserService.save(user);
 						ajaxJson.setData(user);
 						ajaxJson.setMsg("注册成功!");
+						UserUtils.removeCache(userKey);
 					} catch (Exception e) {
 						ajaxJson.fail("注册失败！");
 						e.printStackTrace();
@@ -80,12 +86,12 @@ public class RegisterController extends BaseController {
 				} else {
 					ajaxJson.fail("验证码不正确！");
 				}
-//			} else {
-//				ajaxJson.fail("未获取到验证码！");
-//			}
-//		} else {
-//			ajaxJson.fail("用户名或密码不能为空！");
-//		}
+			} else {
+				ajaxJson.fail("未获取到验证码！");
+			}
+		} else {
+			ajaxJson.fail("用户名或密码不能为空！");
+		}
 		return ajaxJson;
 	}
 

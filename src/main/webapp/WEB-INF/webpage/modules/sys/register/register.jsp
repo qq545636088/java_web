@@ -138,6 +138,8 @@
 						+ "&authCode=" + authCode + "&userKey="+userKey+"",
 				success : function(data) {
 					showToast(data.msg, "success");
+					setTimeout(function(){window.location="/jeeweb"},3000)
+					
 				},
 				error : function(error) {
 					showToast(error, "error");
