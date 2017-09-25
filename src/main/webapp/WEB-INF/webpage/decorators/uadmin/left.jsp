@@ -9,7 +9,7 @@
                 <div class="info">
                     <p>${fns:getUser().realname}</p>
                     <ul class="list-inline list-unstyled">
-                        <li><a href="#" data-hover="tooltip" title="个人信息"><i class="fa fa-user"></i></a>
+                        <li><a href="${adminPath}/sys/user/userinfo?id=${fns:getUser().id}" data-hover="tooltip" title="个人信息"><i class="fa fa-user"></i></a>
                         </li>
                         <li><a href="${adminPath}/sys/user/${fns:getUser().id}/avatar" data-hover="tooltip" title="修改头像"><i class="fa fa-camera-retro"></i></a>
                         </li>

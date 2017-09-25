@@ -292,7 +292,7 @@
                    <a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="${appPath}/${fns:getUser().portrait}" alt="" class="img-responsive img-circle" />&nbsp;<span class="hidden-xs">${fns:getUser().realname}</span>&nbsp;<span class="caret"></span>
                    </a>
                    <ul class="dropdown-menu dropdown-user pull-right">
-                       <li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
+                       <li><a href="${adminPath}/sys/user/userinfo?id=${fns:getUser().id}"><i class="fa fa-user"></i>个人信息</a></li>
                        <li><a href="${adminPath}/sys/user/${fns:getUser().id}/avatar"><i class="fa fa-camera-retro"></i>修改头像</a></li>
                        <li><a href="#" data-hover="tooltip" title="修改密码" data-toggle="modal" data-target="#change-password"><i class="fa fa-key"></i>修改密码</a></li>  
                        <li class="divider"></li>

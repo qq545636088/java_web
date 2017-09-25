@@ -214,4 +214,12 @@ public class UserController extends BaseCRUDController<User, String> {
 		model.addAttribute("data", user);
 		return display("info");
 	}
+	@RequestMapping(value = "userinfo")
+	public String userinfo(@RequestParam(required = false) String id, Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		User user = userService.get(id);
+		model.addAttribute("data", user);
+		preEdit(user, model, request, response);
+		return display("userinfo");
+	}
 }

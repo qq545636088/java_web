@@ -11,14 +11,14 @@ public class TaskTest {
  
 	public void run() {
 		for (int i = 0; i < 10; i++) {
-			log.info(i+" run......................................" + (new Date()));
+			log.info(i+" run......" + (new Date()));
 		}
 
 	}
 
 	public void run1() {
 		for (int i = 0; i < 10; i++) {
-			log.info(i+" run1......................................" + (new Date()));
+			log.info(i+" run1...." + (new Date()));
 		}
 	}
 }
