@@ -76,7 +76,12 @@
             </div>
         </form>
     </div>
-    
+		 
+    <div style="margin-top: 40%;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010802000395"><img src="${staticPath}/1.png" style="float: left" /><p style="color:red;float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; ">川公网安备 51010802000395号</p></a>
+    	&emsp;
+    	<a target="_blank" href="http://www.miitbeian.gov.cn" style="color: red;">蜀ICP备17033530号 </a>
+    </div>
     <html:js  name="jquery,bootstrap,iCheck,bootstrap-hover-dropdown,toastr,bootstrapvalidator"/>
     <script src="${staticPath}/uadmin/js/jquery-migrate-1.2.1.min.js"></script>
     <script src="${staticPath}/uadmin/js/jquery-ui.js"></script>

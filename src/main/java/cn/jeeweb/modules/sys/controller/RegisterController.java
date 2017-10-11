@@ -108,6 +108,7 @@ public class RegisterController extends BaseController {
 		if (!StringUtils.isEmpty(phone)) {
 			ajaxJson.fail("手机号不能为空！");
 		}
+		System.out.println("注册的手机号：phone "+phone);
 		TelnetSender t = new TelnetSender();
 		String randomNum= randomNumber(6);
 		cn.jeeweb.core.utils.sms.data.SmsTemplate template = cn.jeeweb.core.utils.sms.data.SmsTemplate.newTemplateByContent(randomNum);

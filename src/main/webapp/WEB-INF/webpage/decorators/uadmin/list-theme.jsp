@@ -60,6 +60,8 @@
     </div>
     <!--BEGIN FOOTER-->
     <div id="footer">
+   		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010802000395"><img src="${staticPath}/1.png" style="float: left" /><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; ">川公网安备 51010802000395号</p></a>
+    	<a target="_blank" href="http://www.miitbeian.gov.cn" style="float: left;height:20px;line-height:20px;margin-left: 20px;">蜀ICP备17033530号 </a>
         <div class="copyright"><spring:message code="sys.site.bottom.copyright" /></div>
     </div>
     <!--END FOOTER-->

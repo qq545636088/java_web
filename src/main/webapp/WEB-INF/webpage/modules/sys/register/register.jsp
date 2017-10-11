@@ -93,6 +93,12 @@
 		var nums = 60;
 		var btn;
 		function sendCode(thisBtn) {
+			var username = $("#username").val();
+			var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if (!myreg.test(username)) {
+				showToast("请输入有效的手机号码!", "error");
+				return;
+			}
 			btn = thisBtn;
 			btn.disabled = true; //将按钮置为不可点击
 			$.ajax({
